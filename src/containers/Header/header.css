@@ -1,0 +1,20 @@
+.header {
+    background-color: black !important;
+    position: fixed !important;
+    width: 80%;
+    color: #ED3B1C;
+    height: 64px;
+}
+
+.header-buttons {
+    width: 10px;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.menu-icon {
+    padding: 25%;
+    height: 100%;
+}
