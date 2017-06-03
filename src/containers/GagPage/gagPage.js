@@ -5,6 +5,10 @@ import { connect } from 'react-redux'
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import './gagPage.css'
+import ThumbpUp from 'material-ui/svg-icons/action/thumb-up';
+import ThumbDown from 'material-ui/svg-icons/action/thumb-down';
+import IconButton from 'material-ui/IconButton';
+import Badge from 'material-ui/Badge';
 
 class GagPage extends Component {
   
@@ -19,6 +23,7 @@ class GagPage extends Component {
   }  
   
   render() {
+    console.log('NAVVVVV==>', this.props.gagInfo)
     return (
       <div>
         <Card style={{'margin-bottom':'40px'}}>
@@ -33,8 +38,16 @@ class GagPage extends Component {
             {this.props.gagInfo.gagDesc}
           </CardText>
           <CardActions>
-            <FlatButton label="Action1" />
-            <FlatButton label="Action2" />
+              <Badge className="badge"
+                badgeContent={this.props.gagInfo.likes}
+                primary={true}>
+                <IconButton><ThumbpUp /></IconButton>
+              </Badge>              
+              <Badge className="badge"
+                badgeContent={this.props.gagInfo.dislikes}
+                primary={true}>
+                <IconButton><ThumbDown /></IconButton>
+              </Badge>   
           </CardActions>
         </Card> 
       </div>

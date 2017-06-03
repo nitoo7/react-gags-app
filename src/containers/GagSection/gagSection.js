@@ -5,6 +5,10 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux'
 import { fetchGagsData } from '../../action/gagAction';
+import IconButton from 'material-ui/IconButton';
+import ThumbpUp from 'material-ui/svg-icons/action/thumb-up';
+import ThumbDown from 'material-ui/svg-icons/action/thumb-down';
+import Badge from 'material-ui/Badge';
 
 class GagSection extends Component {
   
@@ -26,7 +30,7 @@ class GagSection extends Component {
             <Card style={{'margin-bottom':'40px'}}>
               <CardHeader
                 title={gag.gagName}
-                avatar="images/jsa-128.jpg"
+                avatar="http://lh6.googleusercontent.com/-zsRaghZgxlU/AAAAAAAAAAI/AAAAAAAAABQ/BmuAzJoy8i0/s96-c/photo.jpg"
               />
               <CardMedia>
                 <img src={gag.gagImg} />
@@ -35,8 +39,16 @@ class GagSection extends Component {
                 {gag.gagDesc}
               </CardText>
               <CardActions>
-                <FlatButton label="Action1" />
-                <FlatButton label="Action2" />
+              <Badge className="badge"
+                badgeContent={gag.likes}
+                primary={true}>
+                <IconButton><ThumbpUp /></IconButton>
+              </Badge>              
+              <Badge className="badge"
+                badgeContent={gag.dislikes}
+                primary={true}>
+                <IconButton><ThumbDown /></IconButton>
+              </Badge>     
               </CardActions>
             </Card>            
           )

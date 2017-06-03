@@ -4,16 +4,16 @@ const gags = (state = {
   gagsData: [],
   gagInfo: {}
   }, action) => {
-    console.log('REDUCER===>', action)
+    console.log('REDUCER===>', action.response)
     switch (action.type) {
       case 'FETCH_GAGS_DATA':
-      console.log('BBBBBBBB', action.response)
         return {...state,
           gagsData: action.response.gagsData,
         }
       case 'FETCH_GAG_INFO':
+            console.log('BBBBBBBB', action.response)
         return {...state,
-          gagInfo: action.response.gagInfo,
+          gagInfo: action.response,
         }   
       default:
         return state

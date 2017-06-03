@@ -6,6 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from '../Header/header'
 import GagSection from '../GagSection/gagSection'
 import GagPage from '../GagPage/gagPage'
+import GagUpload from '../GagUpload/gagUpload'
 import './App.css'
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
                 <Route path='/' exact="true"  component={GagSection}/>           
                 <Route path='/:gagType' exact="true" component={GagSection} />
                 <Route path='/gag/:gagId' exact="true" component={GagPage} />
+                <Route path='/post/gag' exact="true" component={GagUpload} />
             </div>   
         </MuiThemeProvider>
         )

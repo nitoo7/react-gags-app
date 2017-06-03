@@ -5,3 +5,8 @@
     margin-top: 94px;
     min-width: 315px;
 }
+
+.badge {
+    padding: 2px 4px 12px 12px !important;
+    background-color: #fff;
+}
