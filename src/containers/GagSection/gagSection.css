@@ -10,3 +10,7 @@
     padding: 2px 4px 12px 12px !important;
     background-color: #fff;
 }
+
+.gag-image {
+    max-height: 300px;
+}

@@ -33,7 +33,7 @@ class GagSection extends Component {
                 avatar="http://lh6.googleusercontent.com/-zsRaghZgxlU/AAAAAAAAAAI/AAAAAAAAABQ/BmuAzJoy8i0/s96-c/photo.jpg"
               />
               <CardMedia>
-                <img src={gag.gagImg} />
+                <img className="gag-image" src={gag.gagImg} />
               </CardMedia>
               <CardText>
                 {gag.gagDesc}

@@ -10,6 +10,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/menu';
 import Drawer from 'material-ui/Drawer';
 import GoogleLogin from 'react-google-login';
+import RaisedButton from 'material-ui/RaisedButton';
 import './header.css'
 
 const iconStyles = {
@@ -20,21 +21,10 @@ const iconStyles = {
 class Login extends Component {
   static muiName = 'FlatButton';
 
-// componentDidMount() {
-//   window.gapi.load('auth2', function() {
-//   let auth2 = window.gapi.auth2.init({
-//     client_id: '409775674375-ik77js1a750tvmf63h7iebhfirgt85rh.apps.googleusercontent.com',
-//     fetch_basic_profile: false,
-//     scope: 'profile'
-//   });
-//   console.log('****', auth2)
-
-//   // Sign the user in, and then retrieve their ID.
-//   auth2.signIn().then(function() {
-//     console.log('##########3', auth2.currentUser.get().getId());
-//   });
-// });
-// }
+  constructor(props) {
+    super(props);
+    this.triggerGoogleSignIn = this.triggerGoogleSignIn.bind(this);
+  }  
 
   responseGoogle = (response) => {
     let userDetails = {
@@ -45,17 +35,23 @@ class Login extends Component {
    this.props.logStatus();
     console.log('####==>', userDetails, this.props);
 
-}
+  }
+
+  triggerGoogleSignIn() {
+    this.refs.signInBtn.click();
+  }
 
   render() {
     return (
-  <GoogleLogin
-    clientId="409775674375-ik77js1a750tvmf63h7iebhfirgt85rh.apps.googleusercontent.com"
-    buttonText="Login"
-    onSuccess={this.responseGoogle}
-    onFailure={this.responseGoogle}
-  />
-
+      <div>
+        <RaisedButton label="SignIn" onClick={this.triggerGoogleSignIn} />
+        <GoogleLogin style={{"display":"none"}}
+          clientId="409775674375-ik77js1a750tvmf63h7iebhfirgt85rh.apps.googleusercontent.com"
+          buttonText="Login" ref="signInBtn"
+          onSuccess={this.responseGoogle}
+          onFailure={this.responseGoogle}
+        />      
+      </div>
     );
   }
 }

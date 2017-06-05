@@ -19,7 +19,7 @@ class GagUpload extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imagePreviewUrl: '',
+      imagePreviewUrl: 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder.png',
       gagTitle: '',
       gagDesc: ''
     };
@@ -85,20 +85,19 @@ class GagUpload extends Component {
     var items = ["fun", "games", "sports"]
     return (
         <Card className="gagUploadContainer" style={{'margin-top':'68px'}}>
-        
-            <TextField
-            hintText="Gag Title" value={this.state.gagTitle}
-             onChange={(e) => {this.handleChange(e, 'title')}}
-            /><br />
-            <br />
-            <TextField
-            hintText="Gag Description" value={this.state.gagDesc}
-             onChange={(e) => {this.handleChange(e, 'desc')}}
-            /><br />
-            <input style={{'display': 'none'}} type="file" ref="imgInput" onChange={this._handleImageChange} />
-            <RaisedButton label="Upload Image" onClick={this.triggerImgUpload} />
-          <img src={this.state.imagePreviewUrl}></img>
-          <RaisedButton label="Upload Gag" onClick={this._handleSubmit} />
+          <TextField style={{'width': '100%'}}
+          hintText="Gag Title" value={this.state.gagTitle}
+            onChange={(e) => {this.handleChange(e, 'title')}}
+          /><br />
+          <br />
+          <TextField style={{'width': '100%'}}
+          hintText="Gag Description" value={this.state.gagDesc}
+            onChange={(e) => {this.handleChange(e, 'desc')}}
+          /><br />
+          <input style={{'display': 'none'}} type="file" ref="imgInput" onChange={this._handleImageChange} />
+          <img className="preview-img" src={this.state.imagePreviewUrl}></img>
+          <RaisedButton label="Upload Image" onClick={this.triggerImgUpload} />
+          <RaisedButton style={{'float': 'right'}} label="Upload Gag" onClick={this._handleSubmit} />
         </Card> 
     );
   }
